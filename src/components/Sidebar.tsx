@@ -47,11 +47,13 @@ const ChatSidebar = ({ isOpen, setIsOpen }: ChatSidebarProps) => {
   ];
   return (
     <>
-      <div className="h-full flex flex-col text-white">
+      <div className="h-full flex flex-col text-white relative">
         <div
           className={`border-b border-gray-800 flex items-center justify-between ${isOpen ? "p-4" : "p-3"}`}
         >
-          <h1 className={`${isOpen ? "block" : "hidden"} text-xl font-bold`}>
+          <h1
+            className={`${isOpen ? "block px-4" : "hidden"} text-xl font-bold`}
+          >
             Chats
           </h1>
           <button
@@ -65,19 +67,46 @@ const ChatSidebar = ({ isOpen, setIsOpen }: ChatSidebarProps) => {
             )}
           </button>
         </div>
-        <div className={` ${isOpen ? "p-4" : "p-3"}`}>
+        <div className={` ${isOpen ? "p-4" : "p-3"} overflow-y-auto`}>
           {items.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.id}
-                className={`flex items-center gap-2 my-4 ${isOpen ? "justify-start" : "justify-center"}`}
+                className={`flex items-center gap-2 rounded-2xl py-3 cursor-pointer 
+    transition-all duration-200 
+    hover:bg-gray-800 
+    ${isOpen ? "justify-start px-4" : "justify-center"}
+  `}
               >
                 <Icon size={20} />
                 {isOpen && <span>{item.name}</span>}
               </div>
             );
           })}
+        </div>
+        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-800">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center gap-2">
+              <div className="w-8 h-8 justify-center flex items-center bg-blue-500 text-white p-2 rounded-full">
+                L
+              </div>
+              {isOpen && (
+                <div>
+                  <h2 className="text-sm font-semibold">learningweb93@</h2>
+                  <p className="text-xs text-gray-400">Free</p>
+                </div>
+              )}
+            </div>
+            {isOpen && (
+              <button
+                className=" px-4 text-white py-1 rounded-3xl border border-white
+             transition"
+              >
+                Upgrade
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </>
