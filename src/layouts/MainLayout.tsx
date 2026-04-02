@@ -14,7 +14,14 @@ function MainLayout() {
         <Sidebar setIsOpen={setIsOpen} isOpen={isOpen} />
       </aside>
 
-      <main className="flex-1 h-full  overflow-auto">
+      <main className="flex-1 h-full p-4 overflow-auto">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="mb-4 px-3 py-1 bg-black text-white rounded"
+        >
+          {isOpen ? "Close Sidebar" : "Open Sidebar"}
+        </button>
+
         <Outlet />
       </main>
     </div>
