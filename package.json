@@ -12,6 +12,7 @@
   "dependencies": {
     "@google/genai": "^1.48.0",
     "@tailwindcss/vite": "^4.2.2",
+    "axios": "^1.14.0",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",

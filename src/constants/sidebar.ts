@@ -1,41 +1,36 @@
 import {
-  Images,
   LayoutGrid,
-  MessageSquare,
+  LogOut,
+  MessageSquarePlus,
   Search,
-  SquarePen,
+  UserRound,
 } from "lucide-react";
 
 const items = [
   {
-    id: 1,
-    name: "New Chat",
-    icon: SquarePen,
+    id: "new-chat",
+    name: "New chat",
+    icon: MessageSquarePlus,
   },
   {
-    id: 2,
-    name: "Search Chats",
+    id: "search",
+    name: "Search chats",
     icon: Search,
   },
   {
-    id: 3,
-    name: "Images",
-    icon: Images,
-  },
-  {
-    id: 4,
-    name: "Apps",
+    id: "dashboard",
+    name: "Dashboard",
     icon: LayoutGrid,
   },
   {
-    id: 5,
-    name: "Deep Serach",
-    icon: MessageSquare,
+    id: "profile",
+    name: "Profile",
+    icon: UserRound,
   },
   {
-    id: 6,
-    name: "Codex",
-    icon: MessageSquare,
+    id: "logout",
+    name: "Logout",
+    icon: LogOut,
   },
 ];
 

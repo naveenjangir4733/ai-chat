@@ -1,13 +1,13 @@
 import { AuthLayout, MainLayout } from "@/layouts";
 import {
   Dashboard,
+  Home,
   ForgotPassword,
   Login,
   Profile,
   Register,
   ResetPassword,
 } from "@/pages";
-import { Home } from "lucide-react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
@@ -24,7 +24,7 @@ function AppRoutes() {
 
         <Route element={<PrivateRoute />}>
           <Route element={<MainLayout />}>
-            <Route index element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/profile" element={<Profile />} />
           </Route>

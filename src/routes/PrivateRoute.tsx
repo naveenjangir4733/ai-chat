@@ -1,13 +1,15 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { useAppContext } from "@/context/AppContext";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 function PrivateRoute() {
-  const token = localStorage.getItem("token");
-  const isAuth = !!token;
+  const location = useLocation();
+  const { token, sessionUser } = useAppContext();
 
-  console.log("PrivateRoute rendered");
-  console.log("Token:", token);
-
-  return isAuth ? <Outlet /> : <Navigate to="/login" replace />;
+  return token && sessionUser ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" replace state={{ from: location }} />
+  );
 }
 
 export default PrivateRoute;

@@ -1,5 +1,10 @@
-import AppRoutes from "../routes/route";
+import { AppProvider } from "@/context/AppContext";
+import AppRoutes from "./routes/AppRoute";
 
 export default function App() {
-  return <AppRoutes />;
+  return (
+    <AppProvider>
+      <AppRoutes />
+    </AppProvider>
+  );
 }

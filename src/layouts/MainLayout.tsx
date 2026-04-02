@@ -4,17 +4,18 @@ import { Outlet } from "react-router-dom";
 
 function MainLayout() {
   const [isOpen, setIsOpen] = useState(true);
+
   return (
-    <div className="h-screen flex overflow-hidden border-box">
+    <div className="flex h-screen overflow-hidden bg-slate-950">
       <aside
-        className={`transition-all duration-300 bg-gray-900 ${
-          isOpen ? "w-1/4" : "w-16"
+        className={`shrink-0 overflow-hidden transition-all duration-300 ${
+          isOpen ? "w-[320px]" : "w-20"
         } overflow-hidden`}
       >
         <Sidebar setIsOpen={setIsOpen} isOpen={isOpen} />
       </aside>
 
-      <main className="flex-1 h-full  overflow-auto">
+      <main className="flex-1 overflow-auto">
         <Outlet />
       </main>
     </div>
